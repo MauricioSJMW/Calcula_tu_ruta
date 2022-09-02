@@ -34,12 +34,10 @@ class _MapScreenState extends State<MapScreen> {
               child: CircularProgressIndicator(),
             )
           : SafeArea(
-              child: SingleChildScrollView(
-                child: Stack(
-                  children: const [
-                    MapView(),
-                  ],
-                ),
+              child: Stack(
+                children: const [
+                  MapView(),
+                ],
               ),
             ),
       floatingActionButton: FloatingActionButton.extended(
