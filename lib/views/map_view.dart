@@ -69,7 +69,7 @@ class MapView extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: 'Ingrese Direccion a Buscar',
                 border: InputBorder.none,
-                contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                contentPadding: const EdgeInsets.only(left: 15.0, top: 15.0),
                 suffixIcon: IconButton(
                   icon: IconButton(
                     icon: Icon(Icons.search),
