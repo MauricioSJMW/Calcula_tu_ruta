@@ -25,6 +25,10 @@ class MapView extends StatelessWidget {
     final providerLocation = Provider.of<MyLocation>(context);
     // ignore: no_leading_underscores_for_local_identifiers
     Completer<GoogleMapController> _controller = Completer();
+    // provider.initialCameraPosition = CameraPosition(
+    //     target: LatLng(providerLocation.position!.latitude,
+    //         providerLocation.position!.longitude),
+    //     zoom: 15);
 
     final size = MediaQuery.of(context).size;
     return SizedBox(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mapas_mau/provider/map/map_controller.dart';
 
 import 'package:mapas_mau/views/map_view.dart';
+import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -23,14 +25,22 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MapController>(context);
+
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: const [
-            MapView(),
-          ],
-        ),
-      ),
+      body: provider.position == null
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : SafeArea(
+            child: SingleChildScrollView(
+                child: Stack(
+                  children: const [
+                    MapView(),
+                  ],
+                ),
+              ),
+          ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }

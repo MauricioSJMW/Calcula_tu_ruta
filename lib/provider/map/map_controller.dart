@@ -1,9 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapController extends ChangeNotifier {
+  MapController() {
+    getCurrentPosition();
+  }
+  LatLng? position;
+
   final Completer<GoogleMapController> mapController = Completer();
   CameraPosition _initialCameraPosition =
       const CameraPosition(target: LatLng(21.0883732, -99.9522672), zoom: 15);
@@ -28,5 +34,17 @@ class MapController extends ChangeNotifier {
     final marker = Marker(markerId: markerId, position: position);
     _markers[markerId] = marker;
     notifyListeners();
+  }
+
+  getCurrentPosition() async {
+    final position = await Geolocator.getCurrentPosition();
+    this.position = LatLng(position.latitude, position.longitude);
+    initialCameraPosition = CameraPosition(
+        target: LatLng(position.latitude, position.longitude), zoom: 15);
+
+    notifyListeners();
+
+
+  
   }
 }
