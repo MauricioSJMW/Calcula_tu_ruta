@@ -33,15 +33,19 @@ class _MapScreenState extends State<MapScreen> {
               child: CircularProgressIndicator(),
             )
           : SafeArea(
-            child: SingleChildScrollView(
+              child: SingleChildScrollView(
                 child: Stack(
                   children: const [
                     MapView(),
                   ],
                 ),
               ),
-          ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+            ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Calcula tu ruta'),
+        icon: const Icon(Icons.route),
+      ),
     );
   }
 }

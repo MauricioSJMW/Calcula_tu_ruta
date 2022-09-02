@@ -9,12 +9,11 @@ class MyLocation extends ChangeNotifier {
   }
 
 //obtiene las coordenadas de la ubicacion actual
-  Future getCurrentPosition() async {
-    final position = await Geolocator.getCurrentPosition();
-    this.position = LatLng(position.latitude, position.longitude);
-    notifyListeners();
-    print('esta es la localizacion ${position.toString()}');
 
-    //debe de retornar un valor de tipo LatLong
+  Future<LatLng> getCurrentPosition() async {
+    final position = await Geolocator.getCurrentPosition();
+    print('llllllllllllllllllll');
+    print('Mi posicion actual : ${position.toString()}');
+    return LatLng(position.latitude, position.longitude);
   }
 }
