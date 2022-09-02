@@ -31,7 +31,11 @@ class _MapScreenState extends State<MapScreen> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Calcula tu ruta'),
+        icon: const Icon(Icons.route),
+      ),
     );
   }
 }

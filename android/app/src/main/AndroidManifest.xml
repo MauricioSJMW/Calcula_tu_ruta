@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
    <application
-        android:label="mapas_mau"
+        android:label="calcula_tu_ruta"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -37,6 +37,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
              <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyCGcqv2-ok_Y-K0S01VNqanXzSMdaQ2CN0"/>
+               android:value="AIzaSyALXT-zPvRWCAJJPqh1ylJlyb-BNoMScbs"/>
     </application>
 </manifest>
