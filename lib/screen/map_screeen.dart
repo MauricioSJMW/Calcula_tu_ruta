@@ -28,6 +28,7 @@ class _MapScreenState extends State<MapScreen> {
     final provider = Provider.of<MapController>(context);
 
     return Scaffold(
+      //Espera a que se termine de calcular tu posicion exacta, no aun lo carga muestra el circular progress
       body: provider.position == null
           ? const Center(
               child: CircularProgressIndicator(),

@@ -5,9 +5,11 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapController extends ChangeNotifier {
+//Al crearce el controller lo primero que manda a llamar es la funcion "getCurrentPosition".
   MapController() {
     getCurrentPosition();
   }
+
   LatLng? position;
 
   final Completer<GoogleMapController> mapController = Completer();
@@ -39,12 +41,10 @@ class MapController extends ChangeNotifier {
   getCurrentPosition() async {
     final position = await Geolocator.getCurrentPosition();
     this.position = LatLng(position.latitude, position.longitude);
+    //una vez optenida la ubicaion actual la iguala el "initialCameraPosition" a la nueva ubicacion
     initialCameraPosition = CameraPosition(
         target: LatLng(position.latitude, position.longitude), zoom: 15);
 
     notifyListeners();
-
-
-  
   }
 }
