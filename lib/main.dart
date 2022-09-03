@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mapas_mau/provider/location/location.dart';
 import 'package:mapas_mau/provider/map/map_controller.dart';
+import 'package:mapas_mau/provider/search/search.dart';
 import 'package:mapas_mau/screen/acces_screen.dart';
 import 'package:mapas_mau/screen/map_screeen.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => MapController()),
         ChangeNotifierProvider(create: (_) => MyLocation()),
         ChangeNotifierProvider(create: (_) => PermisosLocation()),
+        ChangeNotifierProvider(create: (_) => Search()),
+
+
+
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

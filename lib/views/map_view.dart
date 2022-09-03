@@ -37,9 +37,10 @@ class MapView extends StatelessWidget {
         '[{"elementType":"geometry","stylers":[{"color":"#f5f5f5"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"elementType":"labels.text.stroke","stylers":[{"color":"#f5f5f5"}]},{"featureType":"administrative.land_parcel","elementType":"labels.text.fill","stylers":[{"color":"#bdbdbd"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"poi.park","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#757575"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#dadada"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#616161"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#e5e5e5"}]},{"featureType":"transit.station","elementType":"geometry","stylers":[{"color":"#eeeeee"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#c9c9c9"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#9e9e9e"}]}]';
     GoogleMapController mapController;
     final size = MediaQuery.of(context).size;
-    return Scaffold(
-        body: Stack(children: <Widget>[
-      GoogleMap(
+    return SizedBox(
+      width: size.width,
+      height: size.height,
+      child: GoogleMap(
         mapType: MapType.normal,
         compassEnabled: false,
         initialCameraPosition: provider.initialCameraPosition,
@@ -51,37 +52,38 @@ class MapView extends StatelessWidget {
           controller.setMapStyle(estiloDia);
           _controller.complete(controller);
         },
-        //onCameraMove: (position) {
-        //providerLocation.position = position.target;
-        //   mapBLoc.mapCenter = position.target;
-        //},
+        // onCameraMove: (position) {
+        //   print(position.target);
+        //   // mapBLoc.mapCenter = position.target;
+        // },
+
+        // Positioned(
+        //   top: 30.0,
+        //   right: 15.0,
+        //   left: 15.0,
+        //   child: Container(
+        //     height: 50.0,
+        //     width: double.infinity,
+        //     decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+        //     child: TextField(
+        //         decoration: InputDecoration(
+        //           hintText: 'Ingrese Direccion a Buscar',
+        //           border: InputBorder.none,
+        //           contentPadding: const EdgeInsets.only(left: 15.0, top: 15.0),
+        //           suffixIcon: IconButton(
+        //             icon: IconButton(
+        //               icon: Icon(Icons.search),
+        //               onPressed: () {},
+        //               iconSize: 30.0,
+        //             ),
+        //             onPressed: () {},
+        //           ),
+        //         ),
+        //         onChanged: (val) {}),
+        //   ),
+        // )
       ),
-      Positioned(
-        top: 30.0,
-        right: 15.0,
-        left: 15.0,
-        child: Container(
-          height: 50.0,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-          child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Ingrese Direccion a Buscar',
-                border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(left: 15.0, top: 15.0),
-                suffixIcon: IconButton(
-                  icon: IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: () {},
-                    iconSize: 30.0,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-              onChanged: (val) {}),
-        ),
-      )
-    ]));
+    );
   }
 }

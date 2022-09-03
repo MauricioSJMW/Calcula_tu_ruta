@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mapas_mau/provider/map/map_controller.dart';
+import 'package:mapas_mau/provider/search/search.dart';
 
 import 'package:mapas_mau/views/map_view.dart';
+import 'package:mapas_mau/widget/searchbar.dart';
 import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
@@ -19,7 +21,6 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -27,19 +28,23 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     final provider = Provider.of<MapController>(context);
 
+
+   
+
     return Scaffold(
       //Espera a que se termine de calcular tu posicion exacta, no aun lo carga muestra el circular progress
       body: provider.position == null
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : SafeArea(
-              child: Stack(
-                children: const [
-                  MapView(),
-                ],
-              ),
+          : SingleChildScrollView(
+            child: Stack(
+              children: const [
+                MapView(),
+                const SearchBar(),
+              ],
             ),
+          ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         label: const Text('Calcula tu ruta'),
