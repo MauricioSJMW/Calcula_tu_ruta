@@ -11,6 +11,7 @@ class Search extends ChangeNotifier {
   TrafficService2 trafficService = TrafficService2();
 
   final String _basePlaces = 'https://api.locationiq.com/v1/autocomplete.php';
+  //cambiar a tu propia key
   static const accesToken = 'pk.2769150a5b92d668096b7ea65e1dccbd';
 
   Future getReseultByQuery(String query) async {

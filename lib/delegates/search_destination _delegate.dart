@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mapas_mau/models/places_models.dart';
 import 'package:mapas_mau/models/searh_resul.dart';
+import 'package:mapas_mau/provider/map/map_controller.dart';
 import 'package:mapas_mau/provider/search/search.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,8 @@ class SearchDestinationDelegate extends SearchDelegate<SearchResut> {
   @override
   Widget buildResults(BuildContext context) {
     final providerSearch = Provider.of<Search>(context, listen: false);
+    final providerMap = Provider.of<MapController>(context);
+
     providerSearch.getDatos(query);
 
     return Builder(
@@ -64,7 +67,10 @@ class SearchDestinationDelegate extends SearchDelegate<SearchResut> {
                           description: place.displayName,
                           name: place.displayName);
                       print('direccion ${result.position}');
-                        close(context, result);
+                      providerMap.onTap(LatLng(result.position!.latitude,
+                          result.position!.longitude));
+                      //madar a llamar funcion para obtener direccion polyline
+                      close(context, result);
                     },
                   );
                 },

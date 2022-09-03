@@ -53,7 +53,10 @@ class MapView extends StatelessWidget {
           _controller.complete(controller);
         },
         // onCameraMove: (position) {
+        //   print('***********************************************************');
         //   print(position.target);
+        //   print('***********************************************************');
+
         //   // mapBLoc.mapCenter = position.target;
         // },
 
