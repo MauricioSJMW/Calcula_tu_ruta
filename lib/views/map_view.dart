@@ -44,8 +44,8 @@ class MapView extends StatelessWidget {
         mapType: MapType.normal,
         compassEnabled: false,
         initialCameraPosition: provider.initialCameraPosition,
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
+        // myLocationEnabled: true,
+        // myLocationButtonEnabled: true,
         markers: provider.markers,
         onTap: provider.onTap,
         onMapCreated: (GoogleMapController controller) {
